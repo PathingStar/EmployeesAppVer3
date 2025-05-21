@@ -9,8 +9,7 @@ namespace EmployeesApp.Web.Controllers
     public class EmployeesController(IEmployeeService service) : Controller
     {
 
-        [HttpGet("")]
-        [ServiceFilter(typeof(LoggingFilter))]
+        [HttpGet("")]        
         public IActionResult Index()
         {
             var model = service.GetAll();
