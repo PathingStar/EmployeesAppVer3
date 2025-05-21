@@ -51,10 +51,7 @@ namespace EmployeesApp.Web.Services
         public bool CheckIsVIP(Employee employee) =>
             employee.Email.StartsWith("ADMIN", StringComparison.CurrentCultureIgnoreCase);
 
-        public Employee[] GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public Employee[] GetAll() => [.. employees.OrderBy(e => e.Name)];
     }
 
 }
