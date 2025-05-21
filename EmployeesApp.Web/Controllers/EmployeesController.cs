@@ -10,6 +10,7 @@ namespace EmployeesApp.Web.Controllers
     {
 
         [HttpGet("")]
+        [ServiceFilter(typeof(LoggingFilter))]
         public IActionResult Index()
         {
             var model = service.GetAll();
