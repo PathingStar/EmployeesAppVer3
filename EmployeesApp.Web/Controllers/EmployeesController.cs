@@ -1,4 +1,5 @@
-﻿using EmployeesApp.Web.Interface;
+﻿using EmployeesApp.Web.Attributes;
+using EmployeesApp.Web.Interface;
 using EmployeesApp.Web.Models;
 using EmployeesApp.Web.Services;
 using EmployeesApp.Web.Views.Employees;
@@ -8,7 +9,6 @@ namespace EmployeesApp.Web.Controllers
 {
     public class EmployeesController(IEmployeeService service) : Controller
     {
-
         [HttpGet("")]        
         public IActionResult Index()
         {
@@ -34,7 +34,7 @@ namespace EmployeesApp.Web.Controllers
         {
             return View();
         }
-
+        [ServiceFilter(typeof(MyLogFilterAttribute))]
         [HttpPost("create")]
         public IActionResult Create(CreateVM viewModel)
         {
