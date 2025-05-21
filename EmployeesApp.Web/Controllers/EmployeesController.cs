@@ -1,13 +1,13 @@
-﻿using EmployeesApp.Web.Models;
+﻿using EmployeesApp.Web.Interface;
+using EmployeesApp.Web.Models;
 using EmployeesApp.Web.Services;
 using EmployeesApp.Web.Views.Employees;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeesApp.Web.Controllers
 {
-    public class EmployeesController : Controller
+    public class EmployeesController(IEmployeeService service) : Controller
     {
-        static readonly EmployeeService service = new();
 
         [HttpGet("")]
         public IActionResult Index()
